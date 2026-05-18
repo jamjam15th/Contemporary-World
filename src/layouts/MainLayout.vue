@@ -2,7 +2,7 @@
   <q-layout view="lHh Lpr fff">
     <q-header elevated>
       <q-toolbar class="bg-white q-pa-lg">
-        <q-img src="src/assets/logo.png" class="logo" />
+        <q-img src="~assets/logo.png" class="logo" />
 
         <q-space />
 
@@ -20,7 +20,7 @@
     <q-footer class="bg-accent">
       <q-toolbar class="q-pa-xl row justify-between">
         <div>
-          <q-img src="src/assets/logo-2.png" class="logo" />
+          <q-img src="~assets/logo-2.png" class="logo" />
           <div class="text-grey-5 q-mt-lg">
             <div>Cavite State University - Imus Campus</div>
             <div>Academic Year 2025-2026</div>

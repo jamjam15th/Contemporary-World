@@ -1,6 +1,6 @@
 <template>
   <q-page class="row items-center justify-evenly">
-    <q-img src="src/assets/landing.png" :ratio="16 / 9">
+    <q-img src="~assets/landing.png" :ratio="16 / 9">
       <div class="text-center flex flex-center column bg-transparent full-height full-width">
         <div class="text-h2 text-weight-bold q-mb-lg">Globalization</div>
         <div class="text-h5 text-weight-medium">
@@ -16,7 +16,7 @@
 
     <div class="row flex flex-center q-mt-xl">
       <div class="col-6">
-        <q-img src="src/assets/landing-2.png" />
+        <q-img src="~assets/landing-2.png" />
       </div>
       <div class="col-6 q-pa-xl">
         <div class="text-h3">Connecting</div>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <q-img src="src/assets/landing-3.png" :ratio="16 / 9" class="q-mt-xl">
+    <q-img src="~assets/landing-3.png" :ratio="16 / 9" class="q-mt-xl">
       <div class="text-left justify-center column absolute-full bg-transparent q-ml-xl">
         <div class="row">
           <div class="col-7">
@@ -134,9 +134,6 @@
   </q-page>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts"></script>
 
-</script>
-
-<style setup lang="scss">
-</style>
+<style setup lang="scss"></style>
