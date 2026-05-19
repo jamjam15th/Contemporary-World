@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr fff">
     <q-header elevated>
-      <q-toolbar class="bg-white q-pa-lg">
+      <q-toolbar class="bg-white q-pa-md">
         <q-img src="~assets/logo.png" class="logo" />
 
         <q-space />
@@ -12,13 +12,34 @@
           flat
           stretch
           toggle-color="secondary"
+          class="gt-sm"
           :options="options"
+        />
+
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          class="lt-md text-primary"
+          @click="toggleLeftDrawer = true"
         />
       </q-toolbar>
     </q-header>
 
+    <q-drawer v-model="toggleLeftDrawer">
+      <q-list>
+        <q-item v-for="option in options" :key="option.value" clickable>
+          <q-item-section>
+            {{ option.label }}
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-drawer>
+
     <q-footer class="bg-accent">
-      <q-toolbar class="q-pa-xl row justify-between">
+      <q-toolbar :class="[$q.screen.lt.sm ? 'column q-py-lg' : 'row q-pa-xl', 'justify-between']">
         <div>
           <q-img src="~assets/logo-2.png" class="logo" />
           <div class="text-grey-5 q-mt-lg">
@@ -28,7 +49,7 @@
           </div>
         </div>
 
-        <div class="row q-gutter-x-xl">
+        <div :class="$q.screen.lt.sm ? 'row q-mt-md q-gutter-x-md' : 'row q-gutter-x-xl'">
           <div class="q-gutter-sm text-grey-5">
             <div class="text-white">Globalization</div>
             <div>Overview</div>
@@ -56,7 +77,7 @@
 import { ref } from 'vue';
 
 const btnRef = ref('Home');
-
+const toggleLeftDrawer = ref(false);
 const options = [
   { label: 'Home', value: 'Home' },
   { label: 'Globalization', value: 'Globalization' },
