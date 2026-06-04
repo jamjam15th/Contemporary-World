@@ -38,7 +38,7 @@
     </div>
 
     <!-- Overview Section -->
-    <q-img src="~assets/landing-3.png" :ratio="16 / 9" class="q-mt-lg">
+    <q-img id="overview" src="~assets/landing-3.png" :ratio="16 / 9" class="q-mt-lg">
       <div
         class="text-left justify-center column absolute-full bg-transparent"
         :class="$q.screen.width > $q.screen.height ? 'q-ml-xl' : 'q-pa-md'"
@@ -83,12 +83,14 @@
         </div>
 
         <div class="row q-col-gutter-lg q-mt-md">
-          <div class="col-12 col-lg-3 " v-for="effect in effects" :key="effect.title">
+          <div class="col-12 col-lg-3" v-for="effect in effects" :key="effect.title">
             <div class="row no-wrap q-gutter-sm">
               <q-icon
                 :name="effect.icon"
                 :color="effect.color"
-                :size="$q.screen.lt.sm ? 'sm' : $q.screen.md ? '60px' : $q.screen.lt.md ? 'xl' : 'lg'"
+                :size="
+                  $q.screen.lt.sm ? 'sm' : $q.screen.md ? '60px' : $q.screen.lt.md ? 'xl' : 'lg'
+                "
               />
               <div class="col">
                 <div class="text-primary text-weight-bold effect-title">

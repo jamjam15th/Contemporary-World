@@ -6,15 +6,41 @@
 
         <q-space />
 
-        <q-btn-toggle
-          v-model="btnRef"
-          color="primary"
-          flat
-          stretch
-          toggle-color="secondary"
-          class="gt-sm"
-          :options="options"
-        />
+        <div class="row gt-sm q-gutter-md">
+          <div v-for="(option, index) in navOptions" :key="option.value" class="relative-position">
+            <q-btn
+              :label="option.label"
+              color="primary"
+              flat
+              @click="
+                option.submenu
+                  ? (showMenuIndex = showMenuIndex === index ? -1 : index)
+                  : navigateTo(option.value)
+              "
+            />
+            <q-menu
+              v-if="option.submenu"
+              :offset="[0, 8]"
+              :model-value="showMenuIndex === index"
+              no-parent-event
+              @hide="showMenuIndex = -1"
+            >
+              <q-list>
+                <q-item
+                  v-for="item in option.submenu"
+                  :key="item.value"
+                  clickable
+                  @click="
+                    navigateTo(item.value);
+                    showMenuIndex = -1;
+                  "
+                >
+                  <q-item-section>{{ item.label }}</q-item-section>
+                </q-item>
+              </q-list>
+            </q-menu>
+          </div>
+        </div>
 
         <q-btn
           flat
@@ -30,11 +56,24 @@
 
     <q-drawer v-model="toggleLeftDrawer">
       <q-list>
-        <q-item v-for="option in options" :key="option.value" clickable>
-          <q-item-section>
-            {{ option.label }}
-          </q-item-section>
-        </q-item>
+        <template v-for="option in navOptions" :key="option.value">
+          <q-item-label v-if="option.submenu" header>{{ option.label }}</q-item-label>
+          <q-item v-if="!option.submenu" clickable @click="navigateTo(option.value)">
+            <q-item-section>{{ option.label }}</q-item-section>
+          </q-item>
+          <q-item
+            v-for="item in option.submenu"
+            :key="item.value"
+            clickable
+            class="q-pl-lg"
+            @click="
+              navigateTo(item.value);
+              toggleLeftDrawer = false;
+            "
+          >
+            <q-item-section>{{ item.label }}</q-item-section>
+          </q-item>
+        </template>
       </q-list>
     </q-drawer>
 
@@ -52,17 +91,31 @@
         <div :class="$q.screen.lt.sm ? 'row q-mt-md q-gutter-x-md' : 'row q-gutter-x-xl'">
           <div class="q-gutter-sm text-grey-5">
             <div class="text-white">Globalization</div>
-            <div>Overview</div>
-            <div>Its Effects</div>
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('#overview')">
+              Overview
+            </div>
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('rights')">
+              Its Effects
+            </div>
           </div>
           <div class="q-gutter-sm text-grey-5">
             <div class="text-white">Areas of Impact</div>
-            <div>Technology</div>
-            <div>Environment</div>
-            <div>Migration</div>
-            <div>Governance</div>
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('technology')">
+              Technology
+            </div>
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('environment')">
+              Environment
+            </div>
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('rights')">
+              Migration
+            </div>
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('rights')">
+              Governance
+            </div>
           </div>
-          <div>Meet the Team</div>
+          <div class="text-white cursor-pointer hover-text" @click="navigateTo('team')">
+            Meet the Team
+          </div>
         </div>
       </q-toolbar>
     </q-footer>
@@ -75,19 +128,89 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-const btnRef = ref('Home');
+const router = useRouter();
 const toggleLeftDrawer = ref(false);
-const options = [
-  { label: 'Home', value: 'Home' },
-  { label: 'Globalization', value: 'Globalization' },
-  { label: 'Areas of Impact', value: 'Areas of Impact' },
-  { label: 'Meet the Team', value: 'Meet the Team' },
+const showMenuIndex = ref(-1);
+
+const navOptions = [
+  { label: 'Home', value: '' },
+  {
+    label: 'Globalization',
+    value: 'globalization',
+    submenu: [
+      { label: 'Overview', value: '#overview' },
+      { label: 'Its Effects', value: 'rights' },
+    ],
+  },
+  {
+    label: 'Areas of Impact',
+    value: 'areas-of-impact',
+    submenu: [
+      { label: 'Technology', value: 'technology' },
+      { label: 'Environment', value: 'environment' },
+      { label: 'Migration', value: 'rights' },
+      { label: 'Governance', value: 'rights' },
+    ],
+  },
+  { label: 'References', value: 'references' },
+  { label: 'Meet the Team', value: 'team' },
 ];
+
+const navigateTo = (path: string) => {
+  // Handle hash-based navigation (for sections on same page)
+  if (path.startsWith('#')) {
+    // First navigate to home if not already there
+    void router
+      .push('/')
+      .then(() => {
+        // Wait for the component to render, then scroll
+        setTimeout(() => {
+          const element = document.querySelector(path);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      })
+      .catch(() => {
+        // Handle navigation error silently
+      });
+    return;
+  }
+
+  if (toggleLeftDrawer.value) {
+    toggleLeftDrawer.value = false;
+  }
+
+  // Reset menu after navigation
+  showMenuIndex.value = -1;
+
+  void router.push(`/${path}`).catch(() => {
+    // Handle navigation error silently
+  });
+};
 </script>
 
 <style scoped lang="scss">
 .logo {
   width: clamp(80px, 15vw, 120px);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.cursor-pointer:hover {
+  color: #fff;
+}
+
+.hover-text {
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: #fff;
+  }
 }
 </style>
