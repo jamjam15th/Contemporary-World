@@ -9,6 +9,8 @@ const routes: RouteRecordRaw[] = [
       { path: 'technology', component: () => import('pages/TechnologyPage.vue') },
       { path: 'environment', component: () => import('pages/EnvironmentPage.vue') },
       { path: 'rights', component: () => import('pages/RightsPage.vue') },
+      { path: 'migration', component: () => import('pages/MigrationPage.vue') },
+      { path: 'social', component: () => import('pages/SocialPage.vue') },
       { path: 'team', component: () => import('pages/TeamPage.vue') },
       { path: 'references', component: () => import('pages/ReferencesPage.vue') },
     ],
