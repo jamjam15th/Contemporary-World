@@ -94,7 +94,7 @@
             <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('#overview')">
               Overview
             </div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('rights')">
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('#effects')">
               Its Effects
             </div>
           </div>
@@ -106,11 +106,14 @@
             <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('environment')">
               Environment
             </div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('rights')">
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('migration')">
               Migration
             </div>
             <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('rights')">
               Governance
+            </div>
+            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('social')">
+              Social Media
             </div>
           </div>
           <div class="text-white cursor-pointer hover-text" @click="navigateTo('team')">
@@ -141,7 +144,7 @@ const navOptions = [
     value: 'globalization',
     submenu: [
       { label: 'Overview', value: '#overview' },
-      { label: 'Its Effects', value: 'rights' },
+      { label: 'Its Effects', value: '#effects' },
     ],
   },
   {
@@ -150,8 +153,9 @@ const navOptions = [
     submenu: [
       { label: 'Technology', value: 'technology' },
       { label: 'Environment', value: 'environment' },
-      { label: 'Migration', value: 'rights' },
+      { label: 'Migration', value: 'migration' },
       { label: 'Governance', value: 'rights' },
+      { label: 'Social Media', value: 'social' },
     ],
   },
   { label: 'References', value: 'references' },

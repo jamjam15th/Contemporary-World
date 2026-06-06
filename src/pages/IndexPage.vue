@@ -12,8 +12,8 @@
           </div>
         </div>
         <div class="q-mt-xl q-gutter-x-md">
-          <q-btn label="Overview" no-caps rounded class="custom-button" />
-          <q-btn label="View effects" no-caps rounded class="custom-button" />
+          <q-btn label="Overview" no-caps rounded class="custom-button" @click="navigateTo('#overview')" />
+          <q-btn label="View effects" no-caps rounded class="custom-button" @click="navigateTo('#effects')" />
         </div>
       </div>
     </q-img>
@@ -68,6 +68,7 @@
 
     <!-- Effects Section -->
     <div
+      id="effects"
       class="row justify-center"
       :class="$q.screen.width > $q.screen.height ? 'q-pa-xl' : 'q-pa-md'"
     >
@@ -109,6 +110,20 @@
 </template>
 
 <script setup lang="ts">
+const navigateTo = (path: string) => {
+  // Handle hash-based navigation (for sections on same page)
+  if (path.startsWith('#')) {
+    const target = document.querySelector(path);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  } else {
+    // Handle regular navigation
+    window.location.href = path;
+  }
+
+};
+
 const effects = [
   {
     icon: 'check_circle_outline',

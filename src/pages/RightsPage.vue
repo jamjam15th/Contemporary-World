@@ -50,10 +50,10 @@
 
       <!-- Section 2 -->
       <div class="row q-col-gutter-xl items-center q-py-xl">
-        <div class="col-6">
+        <div class="col-12 col-sm-6" :style="$q.screen.gt.xs ? '' : 'order: 2'">
           <div class="section-title text-weight-bold text-grey-10 q-mb-md">
             The Democratic Framework
-          </div>
+          </div>  
           <div class="section-body text-grey-9 q-mb-md">
             Democracy is the mechanism that ensures human rights are actually realized. Systems such
             as free elections, the rule of law, and freedom of expression empower citizens to voice
@@ -66,7 +66,7 @@
             fundamental rights worldwide.
           </div>
         </div>
-        <div class="col-6">
+        <div class="col-12 col-sm-6" :style="$q.screen.gt.xs ? '' : 'order: 1'">
           <q-img src="~assets/rights/pic2.png" :ratio="16 / 9" class="rounded-borders shadow-2" />
         </div>
       </div>

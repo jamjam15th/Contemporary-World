@@ -4,8 +4,7 @@
     <q-img src="~assets/Social/social-1.jpg" style="background-color: #2c3e50" :ratio="16 / 9">
       <div class="text-center flex flex-center column full-height full-width" style="background: rgba(0, 0, 0, 0.6);">
         <q-chip
-          class="bg-white text-dark text-weight-bold q-mb-md"
-          style="font-size: 14px; padding: 16px 24px; border-radius: 24px;"
+          class="bg-white text-dark text-weight-bold q-mb-md q-pa-md chip-text"
         >
           Social Media and Digital Culture
         </q-chip>
@@ -95,9 +94,19 @@
   }
 }
 
+.chip-text {
+  border-radius: 24px;
+  @include portrait {
+    font-size: 10px;
+  }
+  @include landscape {
+    font-size: 14px;
+  }
+}
+
 .hero-title {
   @include portrait {
-    font-size: 6vw;
+    font-size: 5vw;
   }
   @include landscape {
     font-size: 4.5vw;

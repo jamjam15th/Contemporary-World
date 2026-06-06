@@ -105,9 +105,9 @@
       <div class="explore-title text-center text-weight-bold text-grey-9">Explore the Data:</div>
 
       <div
-        class="row justify-center q-px-md"
-        :class="$q.screen.gt.xs ? 'q-col-gutter-xl' : ''"
-        style="max-width: 1100px; margin: 0 auto"
+        class="row justify-center q-mx-auto q-px-md"
+        :class="$q.screen.gt.xs ? 'q-col-gutter-xl' : 'q-gutter-y-xl'"
+        style="max-width: 1100px;"
       >
         <div class="col-12 col-sm-6" v-for="report in reports" :key="report.title">
           <q-img :src="report.image" :ratio="16 / 9" class="rounded-borders shadow-3" />
@@ -307,7 +307,7 @@ const reports = [
 .explore-title {
   @include mobile {
     font-size: 6vw;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   @include tablet_desktop {
     font-size: clamp(28px, 3.5vw, 48px);

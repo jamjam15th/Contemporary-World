@@ -5,7 +5,6 @@
       <div class="text-center flex flex-center column full-height full-width" style="background: rgba(0, 0, 0, 0.6);">
         <q-chip
           class="bg-white text-dark text-weight-bold q-mb-md"
-          style="font-size: 14px; padding: 16px 24px; border-radius: 24px;"
         >
           Migration and Displacement
         </q-chip>
@@ -109,7 +108,7 @@
 
 .hero-title {
   @include portrait {
-    font-size: 6vw;
+    font-size: 4vw;
   }
   @include landscape {
     font-size: 4.5vw;
