@@ -91,32 +91,32 @@
         <div :class="$q.screen.lt.sm ? 'row q-mt-md q-gutter-x-md' : 'row q-gutter-x-xl'">
           <div class="q-gutter-sm text-grey-5">
             <div class="text-white">Globalization</div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('#overview')">
+            <div class="cursor-pointer text-grey-4" @click="navigateTo('#overview')">
               Overview
             </div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('#effects')">
+            <div class="cursor-pointer text-grey-4" @click="navigateTo('#effects')">
               Its Effects
             </div>
           </div>
           <div class="q-gutter-sm text-grey-5">
             <div class="text-white">Areas of Impact</div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('technology')">
+            <div class="cursor-pointer text-grey-4" @click="navigateTo('technology')">
               Technology
             </div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('environment')">
+            <div class="cursor-pointer text-grey-4" @click="navigateTo('environment')">
               Environment
             </div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('migration')">
+            <div class="cursor-pointer text-grey-4" @click="navigateTo('migration')">
               Migration
             </div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('rights')">
+            <div class="cursor-pointer text-grey-4" @click="navigateTo('rights')">
               Governance
             </div>
-            <div class="cursor-pointer text-grey-4 hover-text" @click="navigateTo('social')">
+            <div class="cursor-pointer text-grey-4" @click="navigateTo('social')">
               Social Media
             </div>
           </div>
-          <div class="text-white cursor-pointer hover-text" @click="navigateTo('team')">
+          <div class="text-white cursor-pointer" @click="navigateTo('team')">
             Meet the Team
           </div>
         </div>
@@ -151,11 +151,11 @@ const navOptions = [
     label: 'Areas of Impact',
     value: 'areas-of-impact',
     submenu: [
-      { label: 'Technology', value: 'technology' },
-      { label: 'Environment', value: 'environment' },
-      { label: 'Migration', value: 'migration' },
-      { label: 'Governance', value: 'rights' },
-      { label: 'Social Media', value: 'social' },
+      { label: 'Technology in Contemporary World', value: 'technology' },
+      { label: 'Climate and Environment', value: 'environment' },
+      { label: 'Migration and Displacement', value: 'migration' },
+      { label: 'Human Rights and Global Governance', value: 'rights' },
+      { label: 'Social Media and Digital Culture', value: 'social' },
     ],
   },
   { label: 'References', value: 'references' },
@@ -207,14 +207,7 @@ const navigateTo = (path: string) => {
 }
 
 .cursor-pointer:hover {
-  color: #fff;
+  font-weight: 700;
 }
 
-.hover-text {
-  transition: color 0.2s ease;
-
-  &:hover {
-    color: #fff;
-  }
-}
 </style>

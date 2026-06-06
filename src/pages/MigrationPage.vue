@@ -4,7 +4,7 @@
     <q-img src="~assets/Migration/human-cost.png" style="background-color: #2c3e50" :ratio="16 / 9">
       <div class="text-center flex flex-center column full-height full-width" style="background: rgba(0, 0, 0, 0.6);">
         <q-chip
-          class="bg-white text-dark text-weight-bold q-mb-md"
+          class="bg-white text-primary text-weight-bold q-pa-md q-mb-md"
         >
           Migration and Displacement
         </q-chip>

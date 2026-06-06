@@ -4,7 +4,7 @@
     <q-img src="~assets/Social/social-1.jpg" style="background-color: #2c3e50" :ratio="16 / 9">
       <div class="text-center flex flex-center column full-height full-width" style="background: rgba(0, 0, 0, 0.6);">
         <q-chip
-          class="bg-white text-dark text-weight-bold q-mb-md q-pa-md chip-text"
+          class="bg-white text-primary text-weight-bold q-mb-md q-pa-md chip-text"
         >
           Social Media and Digital Culture
         </q-chip>
@@ -25,7 +25,7 @@
       <!-- Global Interconnectedness -->
       <div class="row items-center q-mt-md" style="margin-bottom: 80px;">
         <div class="col-12 col-md-6 q-pa-md">
-          <q-img src="~assets/Social/Interconnectivity.png" style="border-radius: 8px;" />
+          <q-img src="~assets/Social/Interconnectivity.png" style="border-radius: 8px; filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));" />
         </div>
         <div class="col-12 col-md-6 q-pa-md">
           <div :class="$q.screen.width > $q.screen.height ? 'text-left q-pl-xl' : 'text-center'">
@@ -52,14 +52,14 @@
           </div>
         </div>
         <div class="col-12 col-md-6 q-pa-md" :style="$q.screen.width <= $q.screen.height ? 'order: 1' : 'order: 2'">
-          <q-img src="~assets/Social/socializing.jpg" style="border-radius: 8px;" />
+          <q-img src="~assets/Social/socializing.jpg" style="border-radius: 8px; filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));" />
         </div>
       </div>
 
       <!-- The Systemic Challenges -->
       <div class="row items-center" style="margin-bottom: 80px;">
         <div class="col-12 col-md-6 q-pa-md">
-          <q-img src="~assets/Social/SocialChallenge.png" style="border-radius: 8px;" />
+          <q-img src="~assets/Social/SocialChallenge.png" style="border-radius: 8px; filter: drop-shadow(0px 0px 3px rgba(0, 0, 0, 0.5));" />
         </div>
         <div class="col-12 col-md-6 q-pa-md">
           <div :class="$q.screen.width > $q.screen.height ? 'text-left q-pl-xl' : 'text-center'">
