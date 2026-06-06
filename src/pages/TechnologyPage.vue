@@ -33,6 +33,7 @@
           control-color="dark"
           :navigation="false"
           height="auto"
+          :autoplay="2500"
           class="bg-transparent"
         >
 
