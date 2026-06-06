@@ -12,8 +12,8 @@
           The Human Cost of a Changing World
         </div>
         <div class="hero-subtitle text-weight-medium text-white q-mt-sm">
-          By mid-2025, 117.3 million people had been forcibly displaced by persecution, conflict, violence, and<br v-if="$q.screen.width > $q.screen.height" />
-          human rights violations. As global temperatures shift and conflicts arise, displacement is no longer<br v-if="$q.screen.width > $q.screen.height" />
+          By mid-2025, 117.3 million people had been forcibly displaced by persecution, conflict, violence, and
+          human rights violations. As global temperatures shift and conflicts arise, displacement is no longer
           just a local issue. It is a defining characteristic of our modern, interconnected era.
         </div>
       </div>
